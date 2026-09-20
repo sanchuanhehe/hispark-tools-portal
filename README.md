@@ -2,7 +2,7 @@
 
 用于展示开发工具分类、搜索、版本选择和编译工具链 ABI 联动选择的前端原型。基于 React、TypeScript、Vite 与 vinext，保留 Next.js App Router 文件结构。
 
-[在线设计原型](https://hisilicon-developer-tools-redesign.wyihe5220.chatgpt.site/)
+[GitHub Pages 演示](https://github.sanchuanhehe.com/hispark-tools-portal/) · [原 Sites 设计原型](https://hisilicon-developer-tools-redesign.wyihe5220.chatgpt.site/)
 
 ## 功能
 
@@ -60,3 +60,9 @@ vite.config.ts    独立 vinext / Vite 配置
 ## 验证与已知问题
 
 本次源码整理已通过全新 `npm ci`、`npm run build` 和 `npm run typecheck`。`npm run lint` 当前报告 25 个错误、4 个警告，主要是原型占位链接、Effect 中的状态初始化、Hook 依赖及原生图片建议，尚未完成无障碍与状态管理整改。此仓库保留原型行为，不将其描述为生产就绪产品。
+
+## GitHub Pages
+
+推送到 `main` 后，GitHub Actions 自动执行类型检查与 `npm run build:pages`，将 `dist/client` 静态文件部署到 GitHub Pages。仓库路径为 `/hispark-tools-portal/`，站点沿用账号已配置的自定义域名。
+
+本地 `npm run build` 仍构建服务器版本。`npm run build:pages` 为静态导出，预览时需将导出目录挂载在 `/hispark-tools-portal/`，无需部署 Node.js 服务。

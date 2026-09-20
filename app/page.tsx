@@ -5,8 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import { resources, toolchainArtifacts, type Release, type Resource, type ToolchainArtifact } from "../data/catalog";
 
 const toolchainRoots = ["GCC", "Clang / LLVM"] as const;
-const siteUrl = "https://hisilicon-developer-tools-redesign.wyihe5220.chatgpt.site";
-const prototypeDownloadUrl = "/downloads/prototype-placeholder.bin";
+import { siteUrl, basePath, assetPath } from "../lib/site";
+const prototypeDownloadUrl = assetPath("/downloads/prototype-placeholder.bin");
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -183,7 +183,7 @@ function ToolchainRootCard({ root, artifacts }: { root: (typeof toolchainRoots)[
   return (
     <article className="toolchain-root-card">
       <div className="toolchain-heading">
-        <div className="product-icon toolchain-icon"><img src="/toolchain-icon.png" alt="" /></div>
+        <div className="product-icon toolchain-icon"><img src={assetPath("/toolchain-icon.png")} alt="" /></div>
         <div>
           <div className="badges"><span className="recommend">{current.status}</span><span>编译工具链</span><span>{artifacts.length} 个可用包</span></div>
           <h3>{rootLabel}</h3>
@@ -295,7 +295,7 @@ export default function Home() {
     const params = new URLSearchParams(currentSearch);
     Object.entries(changes).forEach(([key, value]) => value ? params.set(key, value) : params.delete(key));
     const queryString = params.toString();
-    return `/${queryString ? `?${queryString}` : ""}#resources`;
+    return `${basePath}/${queryString ? `?${queryString}` : ""}#resources`;
   }
 
   const filtered = useMemo(() => {
@@ -382,7 +382,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       <header className="site-header">
         <a className="brand" href="#" aria-label="HiSpark 生态首页">
-          <img src="/hispark-logo.png" alt="HiSpark 生态" />
+          <img src={assetPath("/hispark-logo.png")} alt="HiSpark 生态" />
         </a>
         <nav aria-label="主导航">
           <a href="#">首页</a><a href="#">案例中心</a><a href="#">解决方案</a>
@@ -456,7 +456,7 @@ export default function Home() {
               const release = selectedRelease(item);
               return (
                 <article className="resource-card" key={item.id}>
-                  <div className="product-icon"><img src={item.icon} alt="" /></div>
+                  <div className="product-icon"><img src={assetPath(item.icon)} alt="" /></div>
                   <div className="product-main">
                     <div className="badges"><span className="recommend">{release.status}</span><span>{item.category}</span><span>{item.family}</span>{item.coreVersion && <span>{item.coreVersion}</span>}</div>
                     <h3>{item.title}</h3>

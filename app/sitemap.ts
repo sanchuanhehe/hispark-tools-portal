@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://hisilicon-developer-tools-redesign.wyihe5220.chatgpt.site";
+import { siteUrl } from "../lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [{
