@@ -33,7 +33,8 @@ npm run start
 ## 目录
 
 ```text
-app/page.tsx       页面交互、筛选与版本选择组件
+app/page.tsx       静态页面入口
+app/catalog-client.tsx 页面交互、筛选与版本选择组件
 app/globals.css    页面样式与字体
 app/layout.tsx     页面元数据、社交预览与布局
 data/catalog.ts   工具、版本及工具链安装包目录
@@ -41,7 +42,7 @@ public/           图片、字体和下载占位文件
 vite.config.ts    独立 vinext / Vite 配置
 ```
 
-新增普通工具修改 `data/catalog.ts` 的 `resources`；新增工具链安装包修改 `toolchainArtifacts`。分类选项、芯片辅助映射和筛选行为目前位于 `app/page.tsx`。部署到新域名时同步修改页面、布局、robots 和 sitemap 中的站点 URL。
+新增普通工具修改 `data/catalog.ts` 的 `resources`；新增工具链安装包修改 `toolchainArtifacts`。分类选项、芯片辅助映射和筛选行为目前位于 `app/catalog-client.tsx`。部署到新域名时同步修改页面、布局、robots 和 sitemap 中的站点 URL。
 
 ## 原型边界
 

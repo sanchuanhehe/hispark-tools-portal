@@ -11,7 +11,7 @@
     "start": "vinext start",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
-    "build:pages": "NEXT_PUBLIC_BASE_PATH=/hispark-tools-portal vinext build"
+    "build:pages": "NEXT_PUBLIC_BASE_PATH=/hispark-tools-portal vinext build && node scripts/prepare-pages.mjs"
   },
   "dependencies": {
     "react": "19.2.6",
